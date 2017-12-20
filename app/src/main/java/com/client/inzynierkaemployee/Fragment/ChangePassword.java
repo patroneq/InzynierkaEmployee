@@ -27,12 +27,7 @@ public class ChangePassword extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.list_of_tasks, container, false);
-
-        String fullName = MainActivity.employeeModel.getFullName();
-
-        TextView name = (TextView) view.findViewById(R.id.name);
-        name.setText(fullName);
+        View view =  inflater.inflate(R.layout.change_password, container, false);
 
         return view;
     }

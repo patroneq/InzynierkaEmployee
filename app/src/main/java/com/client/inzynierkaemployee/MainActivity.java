@@ -1,12 +1,9 @@
 package com.client.inzynierkaemployee;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -82,8 +79,6 @@ public class MainActivity extends AppCompatActivity
         // Inflate the mMenu; this adds items to the action bar if it is present.
         this.setMenu(menu);
         employeeModel = gson.fromJson(getIntent().getStringExtra("user_profile"), EmployeeModel.class);
-        System.out.println("USER:" +employeeModel.getFullName());
-//        getIntent().putExtra("ham-menu", new Gson().toJson(menu));
         getMenuInflater().inflate(R.menu.main, menu);
         mNickNameView = (TextView) findViewById(R.id.nickNameView);
         mFullNameView = (TextView) findViewById(R.id.fullNameView);
