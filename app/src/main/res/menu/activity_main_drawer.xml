@@ -14,10 +14,6 @@
             android:id="@+id/finished_tasks"
             android:icon="@mipmap/ic_launcher"
             android:title="Finished tasks" />
-        <item
-            android:id="@+id/Settings"
-            android:icon="@mipmap/ic_launcher"
-            android:title="Settings" />
     </group>
 
 </menu>

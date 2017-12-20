@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.client.inzynierkaemployee.Fragment.ChangePassword;
 import com.client.inzynierkaemployee.Fragment.ListOfTasks;
 import com.client.inzynierkaemployee.Model.EmployeeModel;
 import com.client.inzynierkaemployee.Utils.Utils;
@@ -115,6 +116,18 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Fragment fragment = null;
+            fragment = new ChangePassword();
+
+            if (fragment != null) {
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.content_main, fragment);
+                ft.commit();
+            }
+
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
+
             return true;
         }
 
