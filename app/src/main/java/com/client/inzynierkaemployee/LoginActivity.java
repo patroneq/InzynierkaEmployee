@@ -31,6 +31,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.client.inzynierkaemployee.Fragment.ListOfTasks;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -375,6 +376,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private void StartDashboard() {
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("user_profile", UserProfile);
+
         startActivity(intent);
         finish();
     }

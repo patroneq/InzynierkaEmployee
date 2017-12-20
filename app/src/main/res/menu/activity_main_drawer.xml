@@ -3,39 +3,21 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/Dashboard"
+            android:id="@+id/list_of_tasks"
             android:icon="@mipmap/ic_launcher"
-            android:title="Dashboard" />
+            android:title="List of tasks" />
         <item
-            android:id="@+id/JobsTaken"
+            android:id="@+id/current_tasks"
             android:icon="@mipmap/ic_launcher"
-            android:title="Jobs taken" />
+            android:title="Current tasks" />
         <item
-            android:id="@+id/JobFilters"
+            android:id="@+id/finished_tasks"
             android:icon="@mipmap/ic_launcher"
-            android:title="Job filters" />
-        <item
-            android:id="@+id/MakeJob"
-            android:icon="@mipmap/ic_launcher"
-            android:title="Make job" />
-        <item
-            android:id="@+id/MyRequests"
-            android:icon="@mipmap/ic_launcher"
-            android:title="My reuests" />
-        <item
-            android:id="@+id/YourProfile"
-            android:icon="@mipmap/ic_launcher"
-            android:title="Your profile" />
+            android:title="Finished tasks" />
         <item
             android:id="@+id/Settings"
             android:icon="@mipmap/ic_launcher"
             android:title="Settings" />
     </group>
-
-    <!--<item android:title="Communicate">-->
-        <!--<menu>-->
-
-        <!--</menu>-->
-    <!--</item>-->
 
 </menu>

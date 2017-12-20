@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -18,19 +19,16 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.client.inzynierkaemployee.Fragment.ListOfTasks;
 import com.client.inzynierkaemployee.Model.EmployeeModel;
 import com.client.inzynierkaemployee.Utils.Utils;
 import com.google.gson.Gson;
 
-import com.client.inzynierkaemployee.Fragment.MainFragment;
-
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    EmployeeModel employeeModel;
+    public static EmployeeModel employeeModel;
     Gson gson;
-
-    private Fragment SelectedFragment;
 
     private TextView mNickNameView;
     private TextView mFullNameView;
@@ -57,23 +55,6 @@ public class MainActivity extends AppCompatActivity
         employeeModel = new EmployeeModel();
         gson = Utils.getGsonInstance();
         employeeModel = gson.fromJson(getIntent().getStringExtra("user_profile"), EmployeeModel.class);
-
-
-//        mMenu = gson.fromJson(getIntent().getStringExtra("ham-menu"), Menu.class);
-
-        this.supportInvalidateOptionsMenu();
-
-        Fragment fragment = null;
-        Class fragmentClass = null;
-        fragmentClass = MainFragment.class;
-        try {
-            fragment = (Fragment) fragmentClass.newInstance();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.contentFL, fragment).commit();
     }
 
     @Override
@@ -100,15 +81,15 @@ public class MainActivity extends AppCompatActivity
         // Inflate the mMenu; this adds items to the action bar if it is present.
         this.setMenu(menu);
         employeeModel = gson.fromJson(getIntent().getStringExtra("user_profile"), EmployeeModel.class);
+        System.out.println("USER:" +employeeModel.getFullName());
 //        getIntent().putExtra("ham-menu", new Gson().toJson(menu));
         getMenuInflater().inflate(R.menu.main, menu);
         mNickNameView = (TextView) findViewById(R.id.nickNameView);
         mFullNameView = (TextView) findViewById(R.id.fullNameView);
-        mSpecView = (TextView) findViewById(R.id.specView);
         mImageView = (ImageView) findViewById(R.id.logOffImageView);
         mNickNameView.setText(employeeModel.email);
+        passObject(employeeModel);
         mFullNameView.setText(employeeModel.name + " " + employeeModel.lastName);
-        mSpecView.setText("Brak specjalizacji");
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,7 +102,6 @@ public class MainActivity extends AppCompatActivity
     private void logOff()
     {
         Intent LogingIntent = new Intent(this, LoginActivity.class);
-//        setResult( Activity.RESULT_OK, LogingIntent );
         startActivity(LogingIntent);
         finish();
     }
@@ -141,40 +121,42 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
+    private void displaySelectedScreen(int id) {
         Fragment fragment = null;
-        Class fragmentClass = null;
-        if (id == R.id.Dashboard) {
-            fragmentClass= MainFragment.class;
-        }else if (id == R.id.JobsTaken) {
-            //fragmentClass = JobsTakenFragment.class;
-        } else if (id == R.id.JobFilters) {
-            //fragmentClass = JobFiltersFragment.class;
-        } else if (id == R.id.MakeJob) {
-            //fragmentClass = MakeJobFragment.class;
-        } else if (id == R.id.MyRequests) {
-            //fragmentClass = MyRequestsFragment.class;
-        } else if (id == R.id.YourProfile) {
-            //fragmentClass = UserProfileFragment.class;
-        } else if (id == R.id.Settings) {
-            //fragmentClass = SettingsFragment.class;
-        }
-        try {
-            fragment = (Fragment) fragmentClass.newInstance();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.contentFL, fragment).commit();
 
+        switch(id) {
+            case R.id.list_of_tasks:
+                fragment = new ListOfTasks();
+                break;
+            case R.id.current_tasks:
+                break;
+        }
+
+        if (fragment != null) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_main, fragment);
+            ft.commit();
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        displaySelectedScreen(id);
+
         return true;
+    }
+
+    private void passObject(EmployeeModel employee) {
+        Bundle bundle = new Bundle();
+        bundle.putString("employee", new Gson().toJson(employee));
+        Fragment fragment = new ListOfTasks();
+        fragment.setArguments(bundle);
     }
 
     public EmployeeModel getEmployeeModel()

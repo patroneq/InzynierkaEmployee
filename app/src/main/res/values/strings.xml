@@ -18,7 +18,7 @@
     <string name="sign_up">Sign Up</string>
     <string name="prompt_name">Name</string>
     <string name="prompt_surname">Surname</string>
-    <string name="title_activity_main">FreeLancerWorld</string>
+    <string name="title_activity_main">Employee</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
