@@ -20,7 +20,7 @@ public class Communication {
 
         HttpURLConnection httpConnection= null;
         try {
-            httpConnection = (HttpURLConnection) new URL("http://100.93.13.97:8080" + params[0]).openConnection();
+            httpConnection = (HttpURLConnection) new URL("http://100.93.12.204:8080" + params[0]).openConnection();
             //192.168.0.51
             httpConnection.setRequestProperty("Content-Type", "application/json");
             httpConnection.setRequestProperty("charset", "utf-8");
@@ -44,7 +44,7 @@ public class Communication {
             while (inputStreamData != -1) {
                 char currentData = (char) inputStreamData;
                 inputStreamData = inputStreamReader.read();
-                postData += currentData; // litosci, cos takiego na stringu w petli
+                postData += currentData;
             }
             status = 1;
         } catch (java.net.ConnectException ce){
