@@ -1,9 +1,11 @@
 package com.client.inzynierkaemployee;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,13 +19,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.client.inzynierkaemployee.Fragment.ChangePassword;
-import com.client.inzynierkaemployee.Fragment.ListOfTasks;
+import com.client.inzynierkaemployee.Fragment.MainFragment;
 import com.client.inzynierkaemployee.Model.EmployeeModel;
 import com.client.inzynierkaemployee.Utils.Utils;
 import com.google.gson.Gson;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, MainFragment.OnFragmentInteractionListener{
 
     public static EmployeeModel employeeModel;
     Gson gson;
@@ -53,6 +55,20 @@ public class MainActivity extends AppCompatActivity
         employeeModel = new EmployeeModel();
         gson = Utils.getGsonInstance();
         employeeModel = gson.fromJson(getIntent().getStringExtra("user_profile"), EmployeeModel.class);
+
+        this.supportInvalidateOptionsMenu();
+
+        Fragment fragment = null;
+        Class fragmentClass = null;
+        fragmentClass = MainFragment.class;
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.content_main, fragment).commit();
     }
 
     @Override
@@ -84,7 +100,7 @@ public class MainActivity extends AppCompatActivity
         mFullNameView = (TextView) findViewById(R.id.fullNameView);
         mImageView = (ImageView) findViewById(R.id.logOffImageView);
         mNickNameView.setText(employeeModel.email);
-        passObject(employeeModel);
+        //passObject(employeeModel);
         mFullNameView.setText(employeeModel.name + " " + employeeModel.lastName);
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,7 +150,7 @@ public class MainActivity extends AppCompatActivity
 
         switch(id) {
             case R.id.list_of_tasks:
-                fragment = new ListOfTasks();
+                fragment = new MainFragment();
                 break;
             case R.id.current_tasks:
                 break;
@@ -160,12 +176,17 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    private void passObject(EmployeeModel employee) {
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    /*private void passObject(EmployeeModel employee) {
         Bundle bundle = new Bundle();
         bundle.putString("employee", new Gson().toJson(employee));
         Fragment fragment = new ListOfTasks();
         fragment.setArguments(bundle);
-    }
+    }*/
 
     public EmployeeModel getEmployeeModel()
     {
