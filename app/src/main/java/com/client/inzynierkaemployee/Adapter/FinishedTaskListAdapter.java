@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.client.inzynierkaemployee.Model.TaskModel;
@@ -56,11 +57,13 @@ public class FinishedTaskListAdapter extends RecyclerView.Adapter<FinishedTaskLi
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView mTaskName, mTaskCreationDate;
+        RatingBar mTaskRating;
 
         ViewHolder(View view) {
             super(view);
             mTaskName = (TextView) view.findViewById(R.id.finished_task_item_name);
             mTaskCreationDate = (TextView) view.findViewById(R.id.finished_task_item_creation_date_text);
+            mTaskRating = (RatingBar) view.findViewById(R.id.finished_task_item_rating);
             itemView.setOnClickListener(this);
         }
 
@@ -96,6 +99,7 @@ public class FinishedTaskListAdapter extends RecyclerView.Adapter<FinishedTaskLi
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.mTaskName.setText(mDataset.get(position).title);
         holder.mTaskCreationDate.setText(mDataset.get(position).getFormattedDate());
+        holder.mTaskRating.setRating((float)mDataset.get(position).rating);
     }
 
     @Override
