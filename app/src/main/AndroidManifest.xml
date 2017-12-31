@@ -30,6 +30,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".TaskActivity" />
         <activity android:name=".MyTaskActivity" />
+        <activity android:name=".WaitingTaskActivity" />
     </application>
 
 </manifest>
