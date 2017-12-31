@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.client.inzynierkaemployee.Fragment.ChangePassword;
+import com.client.inzynierkaemployee.Fragment.FinishedTasksFragment;
 import com.client.inzynierkaemployee.Fragment.MainFragment;
 import com.client.inzynierkaemployee.Fragment.MyTasksFragment;
 import com.client.inzynierkaemployee.Fragment.WaitingTasksFragment;
@@ -28,7 +29,8 @@ import com.google.gson.Gson;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, MainFragment.OnFragmentInteractionListener,
-        MyTasksFragment.OnFragmentInteractionListener, WaitingTasksFragment.OnFragmentInteractionListener{
+        MyTasksFragment.OnFragmentInteractionListener, WaitingTasksFragment.OnFragmentInteractionListener,
+        FinishedTasksFragment.OnFragmentInteractionListener{
 
     public static EmployeeModel employeeModel;
     Gson gson;
@@ -161,9 +163,9 @@ public class MainActivity extends AppCompatActivity
             case R.id.waiting_tasks:
                 fragment = new WaitingTasksFragment();
                 break;
-
-            /*case R.id.current_tasks:
-                break;*/
+            case R.id.finished_tasks:
+                fragment = new FinishedTasksFragment();
+                break;
         }
 
         if (fragment != null) {
