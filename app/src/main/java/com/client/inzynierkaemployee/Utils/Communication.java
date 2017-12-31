@@ -20,7 +20,7 @@ public class Communication {
 
         HttpURLConnection httpConnection= null;
         try {
-            httpConnection = (HttpURLConnection) new URL("http://192.168.0.102:8080" + params[0]).openConnection();
+            httpConnection = (HttpURLConnection) new URL("http://192.168.0.101:8080" + params[0]).openConnection();
             //192.168.0.51
             httpConnection.setRequestProperty("Content-Type", "application/json");
             httpConnection.setRequestProperty("charset", "utf-8");

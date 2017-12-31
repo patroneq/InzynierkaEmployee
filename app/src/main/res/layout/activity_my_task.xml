@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.client.inzynierkaemployee.TaskActivity">
+    tools:context="com.client.inzynierkaemployee.MyTaskActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -15,28 +15,28 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/task_title_text"
+                android:id="@+id/my_task_title_text"
                 android:textSize="20dp"
                 android:paddingBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
             <TextView
-                android:id="@+id/task_department_name"
+                android:id="@+id/my_task_department_name"
                 android:textSize="20dp"
                 android:paddingBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
             <TextView
-                android:id="@+id/task_description_label"
+                android:id="@+id/my_task_description_label"
                 android:textSize="20dp"
                 android:paddingBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
             <TextView
-                android:id="@+id/task_created_date_label"
+                android:id="@+id/my_task_created_date_label"
                 android:textSize="20dp"
                 android:paddingBottom="10dp"
                 android:layout_width="match_parent"
@@ -49,25 +49,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <TextView
-                android:id="@+id/my_request_address_text"
-                android:textSize="20dp"
-                android:paddingBottom="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:id="@+id/UserText"
-                android:textSize="20dp"
-                android:paddingBottom="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
             <Button
                 android:id="@+id/SendResponseButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
-                android:text="Accept Task" />
+                android:text="Complete Task" />
         </LinearLayout>
     </ScrollView>
 

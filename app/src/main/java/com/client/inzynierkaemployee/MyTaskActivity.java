@@ -14,11 +14,9 @@ import com.client.inzynierkaemployee.Model.TaskModel;
 import com.client.inzynierkaemployee.Utils.Communication;
 import com.client.inzynierkaemployee.Utils.Utils;
 
-import com.client.inzynierkaemployee.R;
+public class MyTaskActivity extends AppCompatActivity {
 
-public class TaskActivity extends AppCompatActivity {
-
-    public final static String IS_TASK_BTN_VISIBLE = "taskBtnVisibility";
+    public final static String IS_TASK_BTN_VISIBLE = "myTaskBtnVisibility";
 
     TextView mTitleText;
     TextView mDepartmentNameText;
@@ -32,14 +30,14 @@ public class TaskActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_task);
-        mTitleText = (TextView) findViewById(R.id.task_title_text);
-        mDepartmentNameText = (TextView) findViewById(R.id.task_department_name);
-        mDescriptionText = (TextView) findViewById(R.id.task_description_label);
-        mCreationDateText = (TextView) findViewById(R.id.task_created_date_label);
+        setContentView(R.layout.activity_my_task);
+        mTitleText = (TextView) findViewById(R.id.my_task_title_text);
+        mDepartmentNameText = (TextView) findViewById(R.id.my_task_department_name);
+        mDescriptionText = (TextView) findViewById(R.id.my_task_description_label);
+        mCreationDateText = (TextView) findViewById(R.id.my_task_created_date_label);
         mSendResponseButton = (Button) findViewById(R.id.SendResponseButton);
 
-        taskModel = Utils.getGsonInstance().fromJson(getIntent().getStringExtra("TASK"), TaskModel.class);
+        taskModel = Utils.getGsonInstance().fromJson(getIntent().getStringExtra("MYTASK"), TaskModel.class);
         mEmployeeModel = Utils.getGsonInstance().fromJson(getIntent().getStringExtra("user_profile"), EmployeeModel.class);
         Boolean requestButtonVisible = getIntent().getBooleanExtra(IS_TASK_BTN_VISIBLE, false);
 
@@ -63,7 +61,7 @@ public class TaskActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... params) {
-            return new Communication().Receive("/employee/accepttask/" + params[1] + "/" + params[0] + "","","PATCH");
+            return new Communication().Receive("/employee/completetask/" + params[1] + "/" + params[0] + "","","PATCH");
         }
         @Override
         protected void onPostExecute(String result) {

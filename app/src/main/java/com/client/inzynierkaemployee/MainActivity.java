@@ -20,12 +20,14 @@ import android.widget.TextView;
 
 import com.client.inzynierkaemployee.Fragment.ChangePassword;
 import com.client.inzynierkaemployee.Fragment.MainFragment;
+import com.client.inzynierkaemployee.Fragment.MyTasksFragment;
 import com.client.inzynierkaemployee.Model.EmployeeModel;
 import com.client.inzynierkaemployee.Utils.Utils;
 import com.google.gson.Gson;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, MainFragment.OnFragmentInteractionListener{
+        implements NavigationView.OnNavigationItemSelectedListener, MainFragment.OnFragmentInteractionListener,
+        MyTasksFragment.OnFragmentInteractionListener{
 
     public static EmployeeModel employeeModel;
     Gson gson;
@@ -152,8 +154,11 @@ public class MainActivity extends AppCompatActivity
             case R.id.list_of_tasks:
                 fragment = new MainFragment();
                 break;
-            case R.id.current_tasks:
+            case R.id.my_tasks:
+                fragment = new MyTasksFragment();
                 break;
+            /*case R.id.current_tasks:
+                break;*/
         }
 
         if (fragment != null) {

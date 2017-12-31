@@ -7,9 +7,9 @@
             android:icon="@mipmap/ic_launcher"
             android:title="List of tasks" />
         <item
-            android:id="@+id/current_tasks"
+            android:id="@+id/my_tasks"
             android:icon="@mipmap/ic_launcher"
-            android:title="Current tasks" />
+            android:title="My tasks" />
         <item
             android:id="@+id/finished_tasks"
             android:icon="@mipmap/ic_launcher"
