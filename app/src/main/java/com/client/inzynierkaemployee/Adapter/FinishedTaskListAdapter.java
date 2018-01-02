@@ -56,14 +56,13 @@ public class FinishedTaskListAdapter extends RecyclerView.Adapter<FinishedTaskLi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView mTaskName, mTaskCreationDate;
-        RatingBar mTaskRating;
+        TextView mTaskName, mTaskCreationDate, mTaskRating;
 
         ViewHolder(View view) {
             super(view);
             mTaskName = (TextView) view.findViewById(R.id.finished_task_item_name);
             mTaskCreationDate = (TextView) view.findViewById(R.id.finished_task_item_creation_date_text);
-            mTaskRating = (RatingBar) view.findViewById(R.id.finished_task_item_rating);
+            mTaskRating = (TextView) view.findViewById(R.id.finished_task_item_rating);
             itemView.setOnClickListener(this);
         }
 
@@ -99,7 +98,7 @@ public class FinishedTaskListAdapter extends RecyclerView.Adapter<FinishedTaskLi
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.mTaskName.setText(mDataset.get(position).title);
         holder.mTaskCreationDate.setText(mDataset.get(position).getFormattedDate());
-        holder.mTaskRating.setRating((float)mDataset.get(position).rating);
+        holder.mTaskRating.setText(mDataset.get(position).rating + "/5");
     }
 
     @Override

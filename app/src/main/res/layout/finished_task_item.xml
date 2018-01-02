@@ -35,17 +35,13 @@
         style="@style/paddedRecyclerItemForPercentStretchSmallText"
         />
 
-    <RatingBar
+    <TextView
         android:id="@+id/finished_task_item_rating"
         app:layout_constraintStart_toEndOf="@id/task_item_vertical_split"
         app:layout_constraintEnd_toEndOf="parent"
-        android:progressBackgroundTint="@color/colorAccent"
-        android:progressTint="@color/colorAccent"
-        android:secondaryProgressTint="@color/colorAccent"
-        android:numStars="5"
         app:layout_constraintTop_toBottomOf="@id/task_item_horizontal_split"
         app:layout_constraintBottom_toBottomOf="parent"
-        style="@style/paddedRecyclerItemForPercentRating"
+        style="@style/paddedRecyclerItemForPercentStretchSmallText"
         />
 
 </android.support.constraint.ConstraintLayout>
