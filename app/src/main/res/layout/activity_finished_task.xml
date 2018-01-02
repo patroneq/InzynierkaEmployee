@@ -42,12 +42,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <RatingBar
+            <android.support.v7.widget.AppCompatRatingBar
                 android:id="@+id/finished_task_rating"
-                android:textSize="20dp"
-                android:paddingBottom="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:progressBackgroundTint="@color/colorAccent"
+                android:progressTint="@color/colorAccent"
+                android:secondaryProgressTint="@color/colorAccent" />
         </LinearLayout>
     </ScrollView>
 
