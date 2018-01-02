@@ -89,6 +89,12 @@ public class ChangePassword extends Fragment {
             cancel = true;
         }
 
+        if (password.length() < 5) {
+            mPassword.setError(getString(R.string.error_invalid_password));
+            focusView = mPassword;
+            cancel = true;
+        }
+
         if (cancel) {
             // There was an error; don't attempt login and focus the first
             // form field with an error.
