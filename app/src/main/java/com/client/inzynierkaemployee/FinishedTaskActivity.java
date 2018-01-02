@@ -34,9 +34,9 @@ public class FinishedTaskActivity extends AppCompatActivity {
         mEmployeeModel = Utils.getGsonInstance().fromJson(getIntent().getStringExtra("user_profile"), EmployeeModel.class);
 
         mTitleText.setText("Title: " + taskModel.title);
-        mDepartmentNameText.setText("qweqwe name: " + taskModel.departmentName);
+        mDepartmentNameText.setText("Department name: " + taskModel.departmentName);
         mDescriptionText.setText("Description: " + taskModel.description);
-        mCreationDateText.setText("Iksde created: " + taskModel.getFormattedDate());
+        mCreationDateText.setText("Date created: " + taskModel.getFormattedDate());
         mRatingBar.setText("IKSDE");
         //mRatingBar.setText("Rating: " + taskModel.rating +"/5");
     }
