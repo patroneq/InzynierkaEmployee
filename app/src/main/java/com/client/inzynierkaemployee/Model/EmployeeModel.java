@@ -9,7 +9,7 @@ public class EmployeeModel {
     public String lastName;
     public String phoneNumber;
     public String active;
-    public double averageMark;
+    public double averageRating;
     public String description;
 
     public int getId() {
@@ -69,11 +69,11 @@ public class EmployeeModel {
     }
 
     public double getAverageMark() {
-        return averageMark;
+        return averageRating;
     }
 
-    public void setAverageMark(double averageMark) {
-        this.averageMark = averageMark;
+    public void setAverageMark(double averageRating) {
+        this.averageRating = averageRating;
     }
 
     public String getDescription() {

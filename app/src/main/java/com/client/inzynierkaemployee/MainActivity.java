@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.client.inzynierkaemployee.Fragment.ChangePassword;
 import com.client.inzynierkaemployee.Fragment.FinishedTasksFragment;
 import com.client.inzynierkaemployee.Fragment.MainFragment;
+import com.client.inzynierkaemployee.Fragment.MyProfile;
 import com.client.inzynierkaemployee.Fragment.MyTasksFragment;
 import com.client.inzynierkaemployee.Fragment.WaitingTasksFragment;
 import com.client.inzynierkaemployee.Model.EmployeeModel;
@@ -134,6 +135,22 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.action_settings) {
             Fragment fragment = null;
             fragment = new ChangePassword();
+
+            if (fragment != null) {
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.content_main, fragment);
+                ft.commit();
+            }
+
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
+
+            return true;
+        }
+
+        if (id == R.id.my_profile) {
+            Fragment fragment = null;
+            fragment = new MyProfile();
 
             if (fragment != null) {
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
