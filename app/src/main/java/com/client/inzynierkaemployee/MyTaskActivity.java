@@ -35,7 +35,7 @@ public class MyTaskActivity extends AppCompatActivity {
         mDepartmentNameText = (TextView) findViewById(R.id.my_task_department_name);
         mDescriptionText = (TextView) findViewById(R.id.my_task_description_label);
         mCreationDateText = (TextView) findViewById(R.id.my_task_created_date_label);
-        mSendResponseButton = (Button) findViewById(R.id.SendResponseButton);
+        mSendResponseButton = (Button) findViewById(R.id.my_SendResponseButton);
 
         taskModel = Utils.getGsonInstance().fromJson(getIntent().getStringExtra("MYTASK"), TaskModel.class);
         mEmployeeModel = Utils.getGsonInstance().fromJson(getIntent().getStringExtra("user_profile"), EmployeeModel.class);

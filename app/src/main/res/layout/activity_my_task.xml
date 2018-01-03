@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"/>
 
             <Button
-                android:id="@+id/SendResponseButton"
+                android:id="@+id/my_SendResponseButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
