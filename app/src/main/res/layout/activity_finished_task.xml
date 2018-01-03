@@ -42,12 +42,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <TextView
+            <RatingBar
                 android:id="@+id/finished_task_rating"
                 android:textSize="20dp"
-                android:text="sdads"
                 android:paddingBottom="10dp"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical|center"
+                android:numStars="5"
+                android:stepSize="0.1"
+                android:isIndicator="true"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
     </ScrollView>

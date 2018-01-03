@@ -22,24 +22,24 @@
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/finished_task_item_name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/task_item_vertical_split"
+        app:layout_constraintEnd_toStartOf="@id/finished_task_item_vertical_split"
         style="@style/paddedRecyclerItemForPercentStretchBigText"
         />
 
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/finished_task_item_creation_date_text"
-        app:layout_constraintStart_toEndOf="@id/task_item_vertical_split"
+        app:layout_constraintStart_toEndOf="@id/finished_task_item_vertical_split"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/task_item_horizontal_split"
+        app:layout_constraintBottom_toTopOf="@id/finished_task_item_horizontal_split"
         style="@style/paddedRecyclerItemForPercentStretchSmallText"
         />
 
     <TextView
         android:id="@+id/finished_task_item_rating"
-        app:layout_constraintStart_toEndOf="@id/task_item_vertical_split"
+        app:layout_constraintStart_toEndOf="@id/finished_task_item_vertical_split"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/task_item_horizontal_split"
+        app:layout_constraintTop_toBottomOf="@id/finished_task_item_horizontal_split"
         app:layout_constraintBottom_toBottomOf="parent"
         style="@style/paddedRecyclerItemForPercentStretchSmallText"
         />
