@@ -12,11 +12,16 @@ public class TaskModel {
     public Date creationDate;
     public String status;
     public int rating;
+    public String problem;
+    public String commentary;
+    public String commentaryProblem;
 
     //temporary constructor for placeHolder
     public TaskModel(String taskName) {
         this.title = taskName;
     }
+
+    public TaskModel() {}
 
     public String getFormattedDate() {
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");

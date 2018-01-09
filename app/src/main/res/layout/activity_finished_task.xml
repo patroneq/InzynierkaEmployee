@@ -42,8 +42,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
+            <TextView
+                android:id="@+id/finished_task_commentary_problem"
+                android:textSize="20dp"
+                android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/finished_task_commentary"
+                android:textSize="20dp"
+                android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
             <RatingBar
-                android:id="@+id/finished_task_rating"
+                android:id="@+id/finished_rating"
                 android:textSize="20dp"
                 android:paddingBottom="10dp"
                 android:layout_width="wrap_content"

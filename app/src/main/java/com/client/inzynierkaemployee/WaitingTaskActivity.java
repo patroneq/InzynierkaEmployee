@@ -15,6 +15,9 @@ public class WaitingTaskActivity extends AppCompatActivity {
     TextView mDescriptionText;
     TextView mCreationDateText;
 
+    TextView mCommentaryProblem;
+    TextView mCommentary;
+
     TaskModel taskModel;
     EmployeeModel mEmployeeModel;
 
@@ -27,6 +30,9 @@ public class WaitingTaskActivity extends AppCompatActivity {
         mDescriptionText = (TextView) findViewById(R.id.waiting_task_description_label);
         mCreationDateText = (TextView) findViewById(R.id.waiting_task_created_date_label);
 
+        mCommentaryProblem = (TextView) findViewById(R.id.waiting_task_commentary_problem);
+        mCommentary = (TextView) findViewById(R.id.waiting_task_commentary);
+
         taskModel = Utils.getGsonInstance().fromJson(getIntent().getStringExtra("WAITINGTASK"), TaskModel.class);
         mEmployeeModel = Utils.getGsonInstance().fromJson(getIntent().getStringExtra("user_profile"), EmployeeModel.class);
 
@@ -34,5 +40,16 @@ public class WaitingTaskActivity extends AppCompatActivity {
         mDepartmentNameText.setText("Department name: " + taskModel.departmentName);
         mDescriptionText.setText("Description: " + taskModel.description);
         mCreationDateText.setText("Date created: " + taskModel.getFormattedDate());
+
+        if(taskModel.problem.equals("YES")) {
+            mCommentaryProblem.setText("Problem: " + taskModel.commentaryProblem);
+        } else {
+            mCommentaryProblem.setText("Problem: No reported problems");
+        }
+        if (taskModel.commentary != null) {
+            mCommentary.setText("Commentary: " + taskModel.commentary);
+        } else {
+            mCommentary.setText("Commentary: No comments");
+        }
     }
 }

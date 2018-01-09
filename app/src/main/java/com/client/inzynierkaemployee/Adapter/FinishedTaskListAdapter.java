@@ -2,7 +2,11 @@ package com.client.inzynierkaemployee.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -96,8 +100,16 @@ public class FinishedTaskListAdapter extends RecyclerView.Adapter<FinishedTaskLi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        Spannable word = new SpannableString("***");
+
+        word.setSpan(new ForegroundColorSpan(Color.RED), 0, word.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
         holder.mTaskName.setText(mDataset.get(position).title);
+        if ((mDataset.get(position).problem).equals("YES")) {
+            holder.mTaskName.append(word);
+        }
         holder.mTaskCreationDate.setText(mDataset.get(position).getFormattedDate());
+
         holder.mTaskRating.setText(mDataset.get(position).rating + "/5");
     }
 
